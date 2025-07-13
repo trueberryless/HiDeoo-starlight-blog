@@ -29,6 +29,9 @@ export default defineConfig({
               url: 'https://hideoo.dev',
             },
           },
+          metrics: {
+            readingTime: true,
+          },
         }),
       ],
       sidebar: [

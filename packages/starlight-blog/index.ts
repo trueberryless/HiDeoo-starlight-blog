@@ -101,6 +101,21 @@ export default function starlightBlogPlugin(userConfig?: StarlightBlogUserConfig
                 })
               }
 
+              if (config.metrics.readingTime) {
+                injectRoute({
+                  entrypoint: 'starlight-blog/routes/Metrics.astro',
+                  pattern: '/[...prefix]/metrics/reading-time/[lengthCategory]',
+                  prerender: true,
+                })
+              }
+              // else if (config.metrics.words == 'total' || config.metrics.words == 'rounded') {
+              //   injectRoute({
+              //     entrypoint: 'starlight-blog/routes/WordCount.astro',
+              //     pattern: '/[...prefix]/metrics/[words]',
+              //     prerender: true,
+              //   })
+              // }
+
               updateConfig({
                 markdown: {
                   remarkPlugins: [[remarkStarlightBlog]],
